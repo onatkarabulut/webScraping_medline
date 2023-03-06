@@ -11,6 +11,6 @@
 ### [TR]
 # Medline Plus Web Site Kazıma Projesi
 
-#### Bu proje kendimi geliştirmek için yapmış olduğum bir klon projesidir.
+#### Bu proje kendimi geliştirmek için yapmış olduğum bir klon projedir.
 #### Bu site açık veri sunmaktadır ve bu kazıma işlemi tamamen eğitim amaçlıdır. 
 
