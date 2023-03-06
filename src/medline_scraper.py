@@ -39,19 +39,24 @@ class ScraperMedline:
 	def getAllDrugsLinks(self,source):
 		""" html#drug-index.us > body > div#mplus-wrap > div#mplus-content > article > ul#index """
 		
+		try:
+			#drug_elements = source.find("ul",attrs={"id":"index"}).find_all("li")
+			drug_links = list(map(lambda drug: self.base_url + drug.find("a")
+				.get("href")
+				.replace(".","",1),
+				#drug_elements
+				source
+				.find("ul",attrs={"id":"index"})
+				.find_all("li")
+				))
+			return set(drug_links) 
+			""" ./meds/a601050.html --> base_url+ /meds/a601050.html """
+		except Exception as e:
+			raise e
 
-		#return list(map(
-		#	lambda drug: self.base_url+drug.find("a").get("href").replace(".","",1),
-		#	set(
-		#		source.find("ul", attrs={"id":"index"}).find_all("li"))
-		#	))
-
-		""" ./meds/a601050.html --> base_url+ /meds/a601050.html """
 		
-		drug_elements = source.find("ul", attrs={"id":"index"}).find_all("li")
-		drug_links = list(map(lambda drug: self.base_url + drug.find("a").get("href").replace(".","",1),drug_elements))
-		return set(drug_links)
-
+		
+		
 
 
 		
@@ -64,3 +69,4 @@ if __name__ == '__main__':
 	drugs = scraper.getAllDrugsLinks(source)
 	print(len(drugs))
 	print(drugs)
+	
