@@ -30,7 +30,7 @@
 
 >  !python3 scraper.py --start 0 --end 10 --filename data.json
 
-
+| | | |
 |----------------|-------------------------------|-----------------------------|
 |- -help					 |`python3 scraper.py --help`                      |
 |- -start          |`python3 scraper.py --start 0`                     |
